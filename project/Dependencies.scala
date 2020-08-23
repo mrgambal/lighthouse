@@ -15,7 +15,7 @@ object Dependencies {
   val logback        = "ch.qos.logback"             % "logback-classic" % "1.2.3"
   val scalaLogging   = "com.typesafe.scala-logging" %% "scala-logging"  % "3.9.2"
   val cats           = "org.typelevel"              %% "cats-core"      % "2.0.0"
-  val betterFiles    = "com.github.pathikrit"       %% "better-files"   % "3.8.0"
+  val betterFiles    = "com.github.pathikrit"       %% "better-files"   % "3.9.1"
 
   // Database connectivity
   val scalikejdbc = "org.scalikejdbc" %% "scalikejdbc" % "3.4.2"
@@ -26,7 +26,7 @@ object Dependencies {
   val awsSdkSsm = "com.amazonaws" % "aws-java-sdk-ssm" % amazonSdkVersion % Provided
   val amazonSdk = Seq(awsSdkS3, awsSdkSsm)
 
-  val scalaTest        = "org.scalatest" %% "scalatest" % "3.1.2"
+  val scalaTest        = "org.scalatest" %% "scalatest" % "3.2.1"
   val testDependencies = Seq(scalaTest % Test, h2)
 
   val commonDependencies: Seq[ModuleID] =

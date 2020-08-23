@@ -5,7 +5,7 @@ import sbt.Opts.resolver.sonatypeStaging
 
 lazy val buildSettings = Seq(
   organization := "be.dataminded",
-  scalaVersion := scala211,
+  scalaVersion := scala212,
   crossScalaVersions := supportedScalaVersions,
   // Ensure code quality
   scalafmtOnCompile := true,
@@ -40,7 +40,8 @@ lazy val buildSettings = Seq(
   git.baseVersion := "0.0.0",
   // Publish like Maven
   publishMavenStyle := true,
-  publishTo := Some(if (isSnapshot.value) datamindedSnapshots else sonatypeStaging),
+  publishTo := Some(datamindedSnapshots),
+  credentials += datamindedCredentials,
   homepage := Some(url("https://github.com/datamindedbe/lighthouse")),
   scmInfo := Some(
     ScmInfo(url("https://github.com/datamindedbe/lighthouse"), "git@github.com:datamindedbe/lighthouse.git")

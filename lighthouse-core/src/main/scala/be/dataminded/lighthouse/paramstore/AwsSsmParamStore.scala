@@ -7,7 +7,7 @@ import com.amazonaws.services.simplesystemsmanagement.model.GetParameterRequest
 /**
   * Class to help retrieve parameters from the AWS parameter store using [[GetParameterRequest]]
   */
-class AwsSsmParamStore() extends ParameterStore {
+class AwsSsmParamStore private () extends ParameterStore {
 
   private lazy val client = AWSSimpleSystemsManagementClientBuilder.defaultClient()
 
@@ -18,10 +18,11 @@ class AwsSsmParamStore() extends ParameterStore {
     * @param ssmPath The AWS SSM path where to retrieve the parameter value from
     * @return An anonymous function allowing to retrieve the configuration path
     */
-  def lookup(ssmPath: String): LazyConfig[String] = LazyConfig {
-    val getParameterRequest = new GetParameterRequest().withName(ssmPath).withWithDecryption(true)
-    client.getParameter(getParameterRequest).getParameter.getValue
-  }
+  def lookup(ssmPath: String): LazyConfig[String] =
+    LazyConfig {
+      val getParameterRequest = new GetParameterRequest().withName(ssmPath).withWithDecryption(true)
+      client.getParameter(getParameterRequest).getParameter.getValue
+    }
 }
 
 /**

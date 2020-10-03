@@ -30,10 +30,19 @@ lazy val buildSettings = Seq(
     "-language:experimental.macros",     // Allow macro definition (besides implementation and application)
     "-language:higherKinds",             // Allow higher-kinded types
     "-language:implicitConversions",     // Allow definition of implicit functions called views
+    "-opt:nullness-tracking",
+    "-opt:box-unbox",
     "-unchecked",
+    "-Xlint",
+    "-Ybackend-parallelism", "8",
+    "-Ybreak-cycles",
     "-Ydelambdafy:inline",
     "-Ypartial-unification",
-    "-Ywarn-unused-import"
+    "-Ywarn-dead-code",
+    "-Ywarn-extra-implicit",
+    "-Ywarn-inaccessible",
+    "-Ywarn-infer-any",
+    "-Ywarn-unused"
   ),
   // Git versioning
   git.useGitDescribe := true,

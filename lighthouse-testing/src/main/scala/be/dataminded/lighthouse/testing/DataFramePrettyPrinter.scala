@@ -4,7 +4,7 @@ import java.sql.Date
 
 import org.apache.commons.lang3.StringUtils
 import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.catalyst.util.DateTimeUtils
+import java.time.format.DateTimeFormatter
 
 private[testing] object DataFramePrettyPrinter {
 
@@ -26,7 +26,7 @@ private[testing] object DataFramePrettyPrinter {
             case null                => "null"
             case binary: Array[Byte] => binary.map("%02X".format(_)).mkString("[", " ", "]")
             case seq: Traversable[_] => seq.mkString("[", ", ", "]")
-            case d: Date             => DateTimeUtils.dateToString(DateTimeUtils.fromJavaDate(d))
+            case d: Date             => DateTimeFormatter.ISO_LOCAL_DATE.format(d.toLocalDate())
             case _                   => cell.toString
           }
 

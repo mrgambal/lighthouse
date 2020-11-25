@@ -22,18 +22,29 @@ lazy val buildSettings = Seq(
     "-Dlighthouse.environment=test"
   ),
   scalacOptions ++= Seq(
-    "-deprecation",                      // Emit warning and location for usages of deprecated APIs.
-    "-encoding", "utf-8",                // Specify character encoding used by source files.
-    "-explaintypes",                     // Explain type errors in more detail.
-    "-feature",                          // Emit warning and location for usages of features that should be imported explicitly.
-    "-language:existentials",            // Existential types (besides wildcard types) can be written and inferred
-    "-language:experimental.macros",     // Allow macro definition (besides implementation and application)
-    "-language:higherKinds",             // Allow higher-kinded types
-    "-language:implicitConversions",     // Allow definition of implicit functions called views
+    "-deprecation", // Emit warning and location for usages of deprecated APIs.
+    "-encoding",
+    "utf-8",                         // Specify character encoding used by source files.
+    "-explaintypes",                 // Explain type errors in more detail.
+    "-feature",                      // Emit warning and location for usages of features that should be imported explicitly.
+    "-language:existentials",        // Existential types (besides wildcard types) can be written and inferred
+    "-language:experimental.macros", // Allow macro definition (besides implementation and application)
+    "-language:higherKinds",         // Allow higher-kinded types
+    "-language:implicitConversions", // Allow definition of implicit functions called views
+    "-opt:nullness-tracking",
+    "-opt:box-unbox",
     "-unchecked",
+    "-Xlint",
+    "-Ybackend-parallelism",
+    "8",
+    "-Ybreak-cycles",
     "-Ydelambdafy:inline",
     "-Ypartial-unification",
-    "-Ywarn-unused-import"
+    "-Ywarn-dead-code",
+    "-Ywarn-extra-implicit",
+    "-Ywarn-inaccessible",
+    "-Ywarn-infer-any",
+    "-Ywarn-unused"
   ),
   // Git versioning
   git.useGitDescribe := true,

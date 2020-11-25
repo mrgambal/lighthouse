@@ -1,6 +1,8 @@
 import sbt._
 
 object Resolvers {
-  lazy val datamindedSnapshots = "Sonatype Nexus Repository Manager" at s"https://nexus.goodyear.eu/repository/maven-releases/"
-  lazy val datamindedCredentials = Credentials(Path.userHome / ".sbt" / "nexus_creds")
+
+  private val `dataminded-artifacts` = "s3://s3-eu-west-1.amazonaws.com/dataminded-artifacts/maven"
+
+  lazy val datamindedSnapshots = "dataminded-releases" at s"${`dataminded-artifacts`}/snapshot"
 }

@@ -12,6 +12,7 @@ lazy val buildSettings = Seq(
   // Memory settings to be able to test with Spark
   Test / fork := true,
   Test / testOptions += Tests.Argument("-oD"),
+  javacOptions ++= Seq("-source", "1.8", "-target", "1.8"),
   javaOptions ++= Seq(
     "-Xms768M",
     "-Xmx2048M",
@@ -22,6 +23,7 @@ lazy val buildSettings = Seq(
     "-Dlighthouse.environment=test"
   ),
   scalacOptions ++= Seq(
+    "-target:jvm-1.8",
     "-deprecation", // Emit warning and location for usages of deprecated APIs.
     "-encoding",
     "utf-8",                         // Specify character encoding used by source files.

@@ -14,7 +14,7 @@ object Dependencies {
   val typesafeConfig = "com.typesafe"                % "config"          % "1.4.1"
   val logback        = "ch.qos.logback"              % "logback-classic" % "1.2.3"
   val scalaLogging   = "com.typesafe.scala-logging" %% "scala-logging"   % "3.9.2"
-  val cats           = "org.typelevel"              %% "cats-core"       % "2.0.0"
+  val cats           = "org.typelevel"              %% "cats-core"       % "2.3.1"
   val betterFiles    = "com.github.pathikrit"       %% "better-files"    % "3.9.1"
 
   // Database connectivity
